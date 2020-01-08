@@ -7,10 +7,12 @@ class SoundAPI extends RESTDataSource {
   }
 
   async getSound({ id: id }) {
+    const response = await this.get(`/${id}.m4a`)
+    const url = `${this.baseURL}/${id}.m4a`
     return {
       id: id,
-      url: `${this.baseURL}/${id}.m4a`,
-      sound: this.get(`/${id}.m4a`)
+      url: url,
+      sound: response
     }
   }
 }
